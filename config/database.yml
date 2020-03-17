@@ -23,13 +23,16 @@ default: &default
 
 development:
   <<: *default
-  database: WillClock_development
+  username: postgres
+  database: will_clock_development
+  host: localhost
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: WillClock
+  #username: will_clock
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: WillClock_test
+  database: will_clock_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: WillClock_production
-  username: WillClock
-  password: <%= ENV['WILLCLOCK_DATABASE_PASSWORD'] %>
+  database: will_clock_production
+  username: postgres
+  # username: will_clock
+  password: <%= ENV['will_clock_DATABASE_PASSWORD'] %>
