@@ -11,7 +11,7 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to goals_path
     else
-      render :new
+      render :new 
     end
   end
   def goal_params(params)
