@@ -13,3 +13,16 @@ class CreateGoals < ActiveRecord::Migration[6.0]
     end
   end
 end
+
+# t.timestamps will make "created at" n "updated at"
+#  -> don't want to erase this (line 11)
+# :id -> no need
+# title could be short enough of 'string'
+# done 0 1 might not be enough -> 'status' is better for future update
+# include t.index search quicker -> line 12
+#  -> this time :user_id would be the criteria
+# unique: true -> makes just one record for each user_id
+#  -> in this case multiple records are OK for each user_id
+# null: false, default: ~ -> when recording column should have value, 
+#  -> otherwise, put the default value ~
+# 

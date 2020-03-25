@@ -1,2 +1,20 @@
-<h1>Goals#index</h1>
-<p>Find me in app/views/goals/index.html.erb</p>
+<h1>
+    目標一覧
+</h1>
+<h2>Goals#index</h2>
+<body>
+    <span>
+    <% @goal.each do |goal| %>
+      <p>goal_id = <%= goal.id %></p>
+      <p>目標 = <%= goal.title %></p>
+      <p>期限 = <%= goal.due_time %></p>
+      <p>　</p>
+    <% end %>
+    </span>
+    <p>
+        <!--<li>-->
+        <!--    <ul>This will be showing all of your GOALs.</ul>-->
+        <!--    <ul><a>add</a></ul>-->
+        <!--</li>-->
+    </p>
+</body>
