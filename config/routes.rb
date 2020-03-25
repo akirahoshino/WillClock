@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "goals#index"
+  # get "" => ""
   
   # resources :goals
   resources :goals #, only: [:index, :new, :create, :edit, :update]
