@@ -1,0 +1,45 @@
+Script started on Fri 27 Mar 2020 06:32:17 AM UTC
+[01;32mec2-user[00m:[01;34m~/environment/WillClock[00m (feature/goals_index) $ rails ske routes | grep welcome[4PGET[9Pcd WillClock/[7Prails [27@git checkout -- config/routes.rb[Cstatus[K[3Prails sls[Kcd ../WillClock/ls[Krails scd test_scaffold/[11Pscriptrails ske routes | grep edit[6Pcd test_scaffold/rake routes | grep editils s[K[1Pscriptcd test_scaffold/[10Prails sls[Kcd ../WillClock/ls[Krails sgit statuscheckout -- config/routes.rb rails [Kcd WillClock/rake routes | grep GETwelcomeils s[K[K[K[01;32mec2-user[00m:[01;34m~/environment/WillClock[00m (feature/goals_index) $ rake routes
+[33mThe dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.[0m
+                               Prefix Verb   URI Pattern                                                                              Controller#Action
+                                 root GET    /                                                                                        goals#index
+                                goals GET    /goals(.:format)                                                                         goals#index
+                                      POST   /goals(.:format)                                                                         goals#create
+                             new_goal GET    /goals/new(.:format)                                                                     goals#new
+                            edit_goal GET    /goals/:id/edit(.:format)                                                                goals#edit
+                                 goal GET    /goals/:id(.:format)                                                                     goals#show
+                                      PATCH  /goals/:id(.:format)                                                                     goals#update
+                                      PUT    /goals/:id(.:format)                                                                     goals#update
+                                      DELETE /goals/:id(.:format)                                                                     goals#destroy
+                     new_user_session GET    /users/sign_in(.:format)                                                                 users/sessions#new
+                         user_session POST   /users/sign_in(.:format)                                                                 users/sessions#create
+                 destroy_user_session DELETE /users/sign_out(.:format)                                                                users/sessions#destroy
+                    new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
+                   edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
+                        user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
+                                      PUT    /users/password(.:format)                                                                devise/passwords#update
+                                      POST   /users/password(.:format)                                                                devise/passwords#create
+             cancel_user_registration GET    /users/cancel(.:format)                                                                  users/registrations#cancel
+                new_user_registration GET    /users/sign_up(.:format)                                                                 users/registrations#new
+               edit_user_registration GET    /users/edit(.:format)                                                                    users/registrations#edit
+                    user_registration PATCH  /users(.:format)                                                                         users/registrations#update
+                                      PUT    /users(.:format)                                                                         users/registrations#update
+                                      DELETE /users(.:format)                                                                         users/registrations#destroy
+                                      POST   /users(.:format)                                                                         users/registrations#create
+                                      GET    /user/:id(.:format)                                                                      users/registrations#detail
+                               signup GET    /signup(.:format)                                                                        users/registrations#new
+                                login GET    /login(.:format)                                                                         users/sessions#new
+                               logout GET    /logout(.:format)                                                                        users/sessions#destroy
+        rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
+        rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
+           rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
+        rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
+         rails_mailgun_inbound_emails POST   /rails/action_mailbox/mailgun/inbound_emails/mime(.:format)                              action_mailbox/ingresses/mailgun/inbound_emails#create
+       rails_conductor_inbound_emails GET    /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#index
+                                      POST   /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#create
+    new_rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/new(.:format)                             rails/conductor/action_mailbox/inbound_emails#new
+   edit_rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id/edit(.:format)                        rails/conductor/action_mailbox/inbound_emails#edit
+        rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#show
+                                      PATCH  /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
+                                      PUT    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
+                                      DELETE /rails/co

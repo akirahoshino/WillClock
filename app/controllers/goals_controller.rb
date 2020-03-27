@@ -7,6 +7,12 @@ class GoalsController < ApplicationController
     @goal = Goal.new
   end
   
+  def show
+  end
+  
+  def edit
+  end
+  
   def create
     @goal = current_user.goals.new(goal_params(params))
     if @goal.save
