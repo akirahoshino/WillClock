@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  root "goals#index"
+  get 'welcome/index'
+  root "welcom#index"
   # get "" => ""
+  
+  # get 'goals/new' => 'goals#new'
+  # post 'goals/create' => 'goals#create'
+  
+  # get 'goals/edit' => 'goals#edit' 
   
   # resources :goals
   resources :goals #, only: [:index, :new, :create, :edit, :update]

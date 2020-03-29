@@ -7,6 +7,10 @@ class GoalsController < ApplicationController
     @goal = Goal.new
   end
   
+  def edit
+    @goal = Goal.find(params[:id])
+  end
+  
   def create
     @goal = current_user.goals.new(goal_params(params))
     if @goal.save
@@ -15,7 +19,22 @@ class GoalsController < ApplicationController
       render :new 
     end
   end
-  def goal_params(params)
-    params.require(:goal).permit(:title, :due_time)
+
+  def update
+    @goal = current_user.goals.find(params[:id])
+    @goal.assign_attributes(goal_params(params))
+    if @goal.save
+      redirect_to goals_path
+    else
+      render :edit 
+    end
   end
+  
+  private
+  
+  def goal_params(params)
+    params.require(:goal).permit(:title, :due_time, :info)
+  end
+  
+  
 end
