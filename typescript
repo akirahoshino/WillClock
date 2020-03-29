@@ -1,0 +1,358 @@
+Script started on Sun 29 Mar 2020 12:40:59 PM UTC
+[01;32mec2-user[00m:[01;34m~/environment/WillClock[00m (feature/goals_index) $ rails s
+[33mThe dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.[0m
+=> Booting Puma
+=> Rails 6.0.2.1 application starting in development 
+=> Run `rails server --help` for more startup options
+Puma starting in single mode...
+* Version 4.3.3 (ruby 2.6.3-p62), codename: Mysterious Traveller
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://127.0.0.1:8080
+* Listening on tcp://[::1]:8080
+Use Ctrl-C to stop
+Started GET "/goals/edit" for 139.101.97.46 at 2020-03-29 12:41:28 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GoalsController#edit as HTML
+  Rendering goals/edit.html.erb within layouts/application
+  Rendered goals/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 298)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 18.7ms | ActiveRecord: 0.0ms | Allocations: 8901)
+
+
+Started GET "/goals/new" for 139.101.97.46 at 2020-03-29 12:42:29 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#new as HTML
+  Rendering goals/new.html.erb within layouts/application
+  Rendered goals/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 944)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 8.0ms | ActiveRecord: 3.2ms | Allocations: 13378)
+
+
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2020-03-29 12:43:33 +0000 ===
+- Goodbye!
+Exiting
+[01;32mec2-user[00m:[01;34m~/environment/WillClock[00m (feature/goals_index) $ rails routes
+[33mThe dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.[0m
+                               Prefix Verb   URI Pattern                                                                              Controller#Action
+                        welcome_index GET    /welcome/index(.:format)                                                                 welcome#index
+                                 root GET    /                                                                                        welcom#index
+                            goals_new GET    /goals/new(.:format)                                                                     goals#new
+                         goals_create POST   /goals/create(.:format)                                                                  goals#create
+                           goals_edit GET    /goals/edit(.:format)                                                                    goals#edit
+                                goals GET    /goals(.:format)                                                                         goals#index
+                                      POST   /goals(.:format)                                                                         goals#create
+                             new_goal GET    /goals/new(.:format)                                                                     goals#new
+                            edit_goal GET    /goals/:id/edit(.:format)                                                                goals#edit
+                                 goal GET    /goals/:id(.:format)                                                                     goals#show
+                                      PATCH  /goals/:id(.:format)                                                                     goals#update
+                                      PUT    /goals/:id(.:format)                                                                     goals#update
+                                      DELETE /goals/:id(.:format)                                                                     goals#destroy
+                     new_user_session GET    /users/sign_in(.:format)                                                                 users/sessions#new
+                         user_session POST   /users/sign_in(.:format)                                                                 users/sessions#create
+                 destroy_user_session DELETE /users/sign_out(.:format)                                                                users/sessions#destroy
+                    new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
+                   edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
+                        user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
+                                      PUT    /users/password(.:format)                                                                devise/passwords#update
+                                      POST   /users/password(.:format)                                                                devise/passwords#create
+             cancel_user_registration GET    /users/cancel(.:format)                                                                  users/registrations#cancel
+                new_user_registration GET    /users/sign_up(.:format)                                                                 users/registrations#new
+               edit_user_registration GET    /users/edit(.:format)                                                                    users/registrations#edit
+                    user_registration PATCH  /users(.:format)                                                                         users/registrations#update
+                                      PUT    /users(.:format)                                                                         users/registrations#update
+                                      DELETE /users(.:format)                                                                         users/registrations#destroy
+                                      POST   /users(.:format)                                                                         users/registrations#create
+                                      GET    /user/:id(.:format)                                                                      users/registrations#detail
+                               signup GET    /signup(.:format)                                                                        users/registrations#new
+                                login GET    /login(.:format)                                                                         users/sessions#new
+                               logout GET    /logout(.:format)                                                                        users/sessions#destroy
+        rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
+        rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
+           rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
+        rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
+         rails_mailgun_inbound_emails POST   /rails/action_mailbox/mailgun/inbound_emails/mime(.:format)                              action_mailbox/ingresses/mailgun/inbound_emails#create
+       rails_conductor_inbound_emails GET    /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#index
+                                      POST   /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#create
+    new_rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/new(.:format)                             rails/conductor/action_mailbox/inbound_emails#new
+   edit_rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id/edit(.:format)                        rails/conductor/action_mailbox/inbound_emails#edit
+        rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#show
+                                      PATCH  /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
+                                      PUT    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
+                                      DELETE /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#destroy
+rails_conductor_inbound_email_reroute POST   /rails/conductor/action_mailbox/:inbound_email_id/reroute(.:format)                      rails/conductor/action_mailbox/reroutes#create
+                   rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+            rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+                   rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+            update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+                 rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
+[01;32mec2-user[00m:[01;34m~/environment/WillClock[00m (feature/goals_index) $ [K[01;32mec2-user[00m:[01;34m~/environment/WillClock[00m (feature/goals_index) $ rails s
+[33mThe dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.[0m
+=> Booting Puma
+=> Rails 6.0.2.1 application starting in development 
+=> Run `rails server --help` for more startup options
+Puma starting in single mode...
+* Version 4.3.3 (ruby 2.6.3-p62), codename: Mysterious Traveller
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://127.0.0.1:8080
+* Listening on tcp://[::1]:8080
+Use Ctrl-C to stop
+Started GET "/goal" for 139.101.97.46 at 2020-03-29 12:50:38 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/goal"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/goals" for 139.101.97.46 at 2020-03-29 12:50:41 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#index as HTML
+  Rendering goals/index.html.erb within layouts/application
+  [1m[36mGoal Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals"[0m
+  ↳ app/views/goals/index.html.erb:72
+  Rendered goals/index.html.erb within layouts/application (Duration: 371.9ms | Allocations: 169324)
+Completed 500 Internal Server Error in 377ms (ActiveRecord: 3.5ms | Allocations: 171965)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `goals_new_path' for #<#<Class:0x00007f497c078ce0>:0x00007f497c087330>
+Did you mean?  goals_path):
+    88:     </table>
+    89:     
+    90:     <li>
+    91:       <ul><%= link_to "新規作成", goals_new_path %></ul>
+    92:     </li>
+    93: 
+    94: </body>
+  
+app/views/goals/index.html.erb:91
+Started GET "/goals" for 139.101.97.46 at 2020-03-29 12:51:32 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#index as HTML
+  Rendering goals/index.html.erb within layouts/application
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals"[0m
+  ↳ app/views/goals/index.html.erb:72
+  Rendered goals/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1045)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.3ms | Allocations: 8085)
+
+
+Started GET "/goals/1/edit" for 139.101.97.46 at 2020-03-29 12:51:37 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:11:in `edit'
+  Rendering goals/edit.html.erb within layouts/application
+  Rendered goals/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 868)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.4ms | Allocations: 5558)
+
+
+Started PATCH "/goals/1" for 139.101.97.46 at 2020-03-29 12:51:48 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for GoalsController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.2.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/goals/1/edit" for 139.101.97.46 at 2020-03-29 12:56:14 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:11:in `edit'
+  Rendering goals/edit.html.erb within layouts/application
+  Rendered goals/edit.html.erb within layouts/application (Duration: 1.0ms | Allocations: 412)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 6.0ms | ActiveRecord: 3.0ms | Allocations: 11757)
+
+
+Started GET "/goals" for 139.101.97.46 at 2020-03-29 12:56:16 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#index as HTML
+  Rendering goals/index.html.erb within layouts/application
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals"[0m
+  ↳ app/views/goals/index.html.erb:72
+  Rendered goals/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.3ms | Allocations: 4321)
+
+
+Started GET "/goals/1/edit" for 139.101.97.46 at 2020-03-29 12:56:19 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:11:in `edit'
+  Rendering goals/edit.html.erb within layouts/application
+  Rendered goals/edit.html.erb within layouts/application (Duration: 0.7ms | Allocations: 351)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.3ms | Allocations: 4467)
+
+
+Started PATCH "/goals/1" for 139.101.97.46 at 2020-03-29 12:56:32 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#update as JS
+  Parameters: {"authenticity_token"=>"6/AosRd0J8ZRj8uEFQWLKtjOX8JNERb+wHo8FJdDahtKknu0FnDDfX9SFTEsVZ7Zr/qxMF4T4/bCFo7lFsbKHA==", "goal"=>{"title"=>"something", "due_time"=>"2020-03-29T00:00:00"}, "commit"=>"送信", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:24:in `update'
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."user_id" = $1 AND "goals"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:24:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/goals_controller.rb:26:in `update'
+  [1m[36mGoal Update (0.3ms)[0m  [1m[33mUPDATE "goals" SET "title" = $1, "updated_at" = $2 WHERE "goals"."id" = $3[0m  [["title", "something"], ["updated_at", "2020-03-29 12:56:32.112452"], ["id", 1]]
+  ↳ app/controllers/goals_controller.rb:26:in `update'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/goals_controller.rb:26:in `update'
+Redirected to https://21c024882b21437b8fe8cef0a4f30bd3.vfs.cloud9.us-east-1.amazonaws.com/goals
+Completed 200 OK in 24ms (ActiveRecord: 4.1ms | Allocations: 11628)
+
+
+Started GET "/goals" for 139.101.97.46 at 2020-03-29 12:56:32 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#index as HTML
+  Rendering goals/index.html.erb within layouts/application
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals"[0m
+  ↳ app/views/goals/index.html.erb:72
+  Rendered goals/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 728)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.3ms | Allocations: 4294)
+
+
+Started GET "/goals/2/edit" for 139.101.97.46 at 2020-03-29 12:57:28 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:11:in `edit'
+  Rendering goals/edit.html.erb within layouts/application
+  Rendered goals/edit.html.erb within layouts/application (Duration: 1.3ms | Allocations: 674)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.3ms | Allocations: 5839)
+
+
+Started PATCH "/goals/2" for 139.101.97.46 at 2020-03-29 13:02:01 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#update as JS
+  Parameters: {"authenticity_token"=>"xGSWA3EV6Tz+AICPM3e7Uh3XoMh8S+b5/xEikIEWmk4UuCBUiVoIH0quRjP6nmfyVD315kK8UorUW+Gd6hzS1Q==", "goal"=>{"title"=>"aaa", "info"=>"ainfo", "due_time"=>"2020-01-01T01:00:00"}, "commit"=>"Update", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:24:in `update'
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."user_id" = $1 AND "goals"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:24:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/goals_controller.rb:26:in `update'
+  [1m[36mGoal Update (0.3ms)[0m  [1m[33mUPDATE "goals" SET "info" = $1, "updated_at" = $2 WHERE "goals"."id" = $3[0m  [["info", "ainfo"], ["updated_at", "2020-03-29 13:02:02.148244"], ["id", 2]]
+  ↳ app/controllers/goals_controller.rb:26:in `update'
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/goals_controller.rb:26:in `update'
+Redirected to https://21c024882b21437b8fe8cef0a4f30bd3.vfs.cloud9.us-east-1.amazonaws.com/goals
+Completed 200 OK in 44ms (ActiveRecord: 11.0ms | Allocations: 16647)
+
+
+Started GET "/goals" for 139.101.97.46 at 2020-03-29 13:02:02 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#index as HTML
+  Rendering goals/index.html.erb within layouts/application
+  [1m[36mGoal Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals"[0m
+  ↳ app/views/goals/index.html.erb:72
+  Rendered goals/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1039)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.4ms | Allocations: 4922)
+
+
+Started GET "/goals/2/edit" for 139.101.97.46 at 2020-03-29 13:02:12 +0000
+Cannot render console from 139.101.97.46! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GoalsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:11:in `edit'
+  Rendering goals/edit.html.erb within layouts/application
+  Rendered goals/edit.html.erb within layouts/application (Duration: 1.0ms | A

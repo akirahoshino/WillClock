@@ -1,0 +1,14 @@
+<% if @goal.errors.any? %>
+  <ul>
+    <% @goal.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @goal do |form| %>
+  <%= form.text_field :title %>
+  <%= form.text_field :info %>
+  <%= form.datetime_field :due_time %>
+  <%= form.submit 'Update' %>
+<% end %>
