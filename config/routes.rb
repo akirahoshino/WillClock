@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-  root "welcom#index"
+  # get 'welcome/index'
+  root "welcome#index"
   # get "" => ""
   
   # get 'goals/new' => 'goals#new'
