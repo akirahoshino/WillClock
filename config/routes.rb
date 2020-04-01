@@ -1,15 +1,8 @@
 Rails.application.routes.draw do
   # get 'welcome/index'
   root "welcome#index"
-  # get "" => ""
-  
-  # get 'goals/new' => 'goals#new'
-  # post 'goals/create' => 'goals#create'
-  
-  # get 'goals/edit' => 'goals#edit' 
-  
-  # resources :goals
   resources :goals #, only: [:index, :new, :create, :edit, :update]
+  
   #devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

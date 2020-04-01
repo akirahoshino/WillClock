@@ -48,13 +48,33 @@
     <!--<a class="navbar-nav text-light text-right" href="#">About</a>-->
     <a id="" class="nav-link btn btn-outline-secondary text-light text-right"><a>
     <form class="form-inline">
-        <button class="btn btn-outline-primary text-light" type="button" role="button">About</button>
+        <div>
+          <button class="btn btn-outline-primary" type="button" role="button"><%= link_to 'About', root_path, class: 'text-light' %></button>
+        </div>
+        
         <div style="padding-left: 10px;">
-          <button class="btn btn-outline-warning text-light" type="button" role="button">Sign up</button>
+          <% unless user_signed_in? %>
+            <button class="btn btn-outline-warning" type="button" role="button">
+              <%= link_to 'Sign up', signup_path, class: 'text-light' %>
+            </button>
+          <% end %>
+        </div>
+        
+        <div style="padding-left: 10px;">
+          <% unless user_signed_in? %>
+            <button class="btn btn-outline-success" type="button" role="button">
+              <%= link_to 'Log in', login_path, class: 'text-light' %>
+            </button>
+          <% end %>
         </div>
         <div style="padding-left: 10px;">
-          <button class="btn btn-outline-success text-light" type="button" role="button">Log in</button>
+          <% if user_signed_in? %>
+            <button class="btn btn-outline-warning" type="button" role="button">
+              <%= link_to 'Log out', logout_path, class: 'text-light' %>
+            </button>
+          <% end %>
         </div>
+
     </form>
     
     <!--<div class="collapse navbar-collapse">-->
