@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy]
   
   def index
-    @goal = Goal.all
+    @goal = Goal.order(params[:sort] + " " + params[:direction])
   end
 
   def new
