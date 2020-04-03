@@ -54,8 +54,13 @@
         <!--<th>goal_id<th>-->
         <th>目標</th>
         <th>内容</th>
+        <th>期限</th>
+        <th>作成日</th>
+        
+<% if false %>        
         <th><%= sortable "due_time", "期限" %></th>
         <th><%= sortable "created_at", "作成日" %></th>
+<% end %>
       </tr>  
     <% @goal.each do |goal| %>
       <tr>
@@ -68,16 +73,13 @@
         <td><%= link_to "delete", goal_path(goal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>  
         
-        
         <p>　</p>
     <% end %>
     </table>
     
-    <li>
-      <ul><%= link_to "新規作成", new_goal_path %></ul>
-      <ul><%= link_to "ホーム", root_path %></ul>
-      <ul><%= link_to "Log out", logout_path %></ul>
-    </li>
+    <div>
+      <%= link_to "新規作成", new_goal_path, class: "btn btn-outline-success" %>
+    </div>
 
 </body>
 

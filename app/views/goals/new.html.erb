@@ -6,8 +6,29 @@
   </ul>
 <% end %>
 
-<%= form_with model: @goal do |form| %>
-  <%= form.text_field :title %>
-  <%= form.datetime_field :due_time %>
-  <%= form.submit '送信' %>
-<% end %>
+<div>
+  <h3 class="text">目標の新規作成</h3>
+</div>
+<div class="mb-5">
+  <%= form_with model: @goal do |form| %>
+    <div class="field">
+      <%= form.label "目標　" %>
+      <%= form.text_field :title %>
+    </div>
+    
+    <div class="field">
+      <%= form.label "期限　" %>
+      <%= form.date_select :due_time %>
+    </div>  
+</div>
+<div class="row align-items-center">
+    <div class="action">
+      <%= form.submit '作成', class: "btn btn-outline-success" %>
+      <%= link_to '戻る', goals_path,  class: "btn btn-outline-secondary" %>
+    </div>  
+      
+  <% end %>
+</div>  
+    
+
+  
