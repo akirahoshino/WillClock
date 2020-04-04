@@ -77,6 +77,12 @@
     <% end %>
     </table>
     
+    <div id="countdown" class="btn btn-primary">
+      <% due_example = @goal.find('1').due_time.in_time_zone('Tokyo') %>
+      <%= p due_example %>
+      
+    </div>
+    
     <div>
       <%= link_to "新規作成", new_goal_path, class: "btn btn-outline-success" %>
     </div>
