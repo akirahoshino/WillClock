@@ -1,18 +1,31 @@
-<!DOCTYPE html>
-<html lang="ja">
-
 <head>
-  <h1>Will Clock</h1>
+  <h1>ようこそ画面</h1>
 </head>
 
+<body onload="startTime()"></body>
+
+<% lipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' %>
+
+
 <body>
-  <h2>About</h2>
+  <h2 class="text-center text-light bg-success">About</h2>
+  <div class="mb-5">
+    <ul>
+        <li>Will Clockで目標までの時間を管理します。</li>
+        <li>ログインすると目標とその期限を設定し、その期限までのカウントダウンを表示します。</li>
+    </ul>  
+    <p><%= p lipsum * 3 %>
+    </p>
+  </div>
   
   <div>
-    <%= link_to "Log In", login_path %>
-    <%= link_to "Sign Up", signup_path %>
-    <%= link_to "目標一覧", goals_path %>
+    <h2 class="text-center text-light bg-primary">How to</h2>
+    <p><%= p lipsum * 3 %>
+  </div>
+  
+  <div>
+    <%= link_to "Log In", login_path, class: 'btn btn-outline-primary' %>
+    <%= link_to "Sign Up", signup_path, class: 'btn btn-outline-primary' %>
+    <%= link_to "目標一覧", goals_path, class: 'btn btn-outline-primary' %>
   </div>
 </body>
-
-</html>

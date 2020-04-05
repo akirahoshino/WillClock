@@ -1,9 +1,18 @@
 # frozen_string_literal: true
 
 class GoalsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy]
+  
   def index
     @goal = Goal.all
   end
+  
+  # 表のソートをできるようにする。このままでは'/goals'に戻れないので
+  # private内にgoals〜にパラメータが無い場合の対処を書く必要あり？
+  # YOUTUBE 'cWYiAVMSHD4'
+  # def index
+  #   @goal = Goal.order(params[:sort] + " " + params[:direction])
+  # end
 
   def new
     @goal = Goal.new
