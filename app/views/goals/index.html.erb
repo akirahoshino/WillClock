@@ -1,41 +1,24 @@
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-<!--    <meta name="description" content="">-->
-<!--    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">-->
-<!--    <meta name="generator" content="Jekyll v3.8.5">-->
-<!--    <title>Album example · Bootstrap</title>-->
-
-<!--    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">-->
-
-     <!--Bootstrap core CSS -->
-<!--<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-
-
-   
-    
-    <div>
-      <script>
-      function startTime() {
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-        m = checkTime(m);
-        s = checkTime(s);
-        document.getElementById('txt').innerHTML =
-        h + ":" + m + ":" + s;
-        var t = setTimeout(startTime, 500);
-      }
-      function checkTime(i) {
-        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-        return i;
-      }
-      </script>
-    </div>
-  </head>
+<head>
+  <div>
+    <script>
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+  </div>
+</head>
 
 <body onload="startTime()">
   <div id="tt"></div>
@@ -59,9 +42,6 @@
     </section>
   </main>
 
-  <p class="float-right">
-    <a href="#">先頭に戻る</a>
-  </p>
 </body>
 
 
@@ -71,12 +51,14 @@
     <table>
     <% @goal.each do |goal| %>
       <tr>  
-        <!--<th>goal_id<th>-->
+        <th>user_id<th>
+        <th>goal_id<th>
         <th>目標<th>
         <th>期限<th>
       </tr>  
       <tr>
-        <!--<td><%= goal.id %></td>-->
+        <td><%= goal.user_id %></td>
+        <td><%= goal.id %></td>
         <td><%= goal.title %></td>
         <td><%= goal.due_time %></td>
         <td><%= link_to "edit", edit_goal_path(goal) %></td>
@@ -91,9 +73,8 @@
     <li>
       <ul><%= link_to "新規作成", new_goal_path %></ul>
     </li>
+  <p class="float-right">
+    <a href="#">先頭に戻る</a>
+  </p>
 
 </body>
-
-
-
-</html>
