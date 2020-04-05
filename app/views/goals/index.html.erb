@@ -22,40 +22,24 @@
 
 <body onload="startTime()"></body>
 
-<body>
-  <!--<main role="main">-->
-  <!--  <section class="jumbotron text-center">-->
-  <!--    <div class="container">-->
-  <!--      <h1 class="jumbotron-heading">目標 一覧</h1>-->
-  <!--      <p class="lead text-muted">View all of your goals</p>-->
-  <!--      <p>-->
-  <!--        <a href="#" class="btn btn-primary my-2">進行中</a>-->
-  <!--        <a href="#" class="btn btn-secondary my-2">完了済み</a>-->
-  <!--        <p id="txt"></p>-->
-  <!--      </p>-->
-  <!--    </div>-->
-  <!--  </section>-->
-  <!--</main>-->
 
-  <p class="float-right">
-    <a href="#">先頭に戻る</a>
-  </p>
-</body>
-
+<p class="text-right">
+  <i>You're logged in as: </i>
+  <%= p current_user.email %>
+</p>
 
 <h1 class="text-center bg-secondary text-light">目標一覧</h1>
-<h2>Goals#index</h2>
-<!--<div class="btn btn-primary">-->
-<!--  <h3 id="clock"></h3>-->
-<!--</div>-->
-<body>
-    <table id="#dtBasicExample" class="table table-striped table-hover">
+
+<body class="text-center">
+    <table class="table table-striped table-hover">
       <tr>  
         <!--<th>goal_id<th>-->
         <th>目標</th>
         <th>内容</th>
         <th>期限</th>
         <th>作成日</th>
+        <th><small>編集</small></th>
+        <th><small>削除</small></th>
         
 <% if false %>        
         <th><%= sortable "due_time", "期限" %></th>
@@ -69,26 +53,14 @@
         <td><%= goal.info %></td>
         <td><%= goal.due_time.in_time_zone('Tokyo') %></td>
         <td><%= goal.created_at.in_time_zone('Tokyo').to_date %></td>
-        <td><%= link_to "edit", edit_goal_path(goal) %></td>
-        <td><%= link_to "delete", goal_path(goal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "", edit_goal_path(goal), class: "fas fa-cog" %></td>
+        <td><%= link_to "", goal_path(goal), method: :delete, data: { confirm: 'Are you sure?' }, class: "fas fa-trash" %></td>
       </tr>  
-        
-        <p>　</p>
     <% end %>
     </table>
     
-    <div id="countdown" class="btn btn-primary">
-      <% due_example = @goal.find('1').due_time.in_time_zone('Tokyo') %>
-      <%= p due_example %>
-      
-    </div>
-    
-    <div>
-      <%= link_to "新規作成", new_goal_path, class: "btn btn-outline-success" %>
+    <div class="">
+      <%= link_to "新規作成", new_goal_path, class: "text-center btn btn-outline-success my-2" %>
     </div>
 
 </body>
-
-
-
-</html>

@@ -32,7 +32,7 @@
       期限
     </div>
     <div class="col-lg-9">
-      <%= form.datetime_select :due_time %>
+      <%= form.datetime_field :due_time %>
     </div>
   </div>
   
@@ -47,7 +47,7 @@
   
   <div class="form-group text-center">
     <%= form.submit '更新', class: 'btn btn-success' %>
-    <%= link_to 'キャンセル', :back, class: 'btn btn-secondaly' %>
+    <%= link_to '戻る', goals_path, class: 'btn btn-secondaly' %>
   </div>
 
 <% end %>
