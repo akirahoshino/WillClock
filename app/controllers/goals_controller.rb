@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class GoalsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @goal = Goal.all
   end
