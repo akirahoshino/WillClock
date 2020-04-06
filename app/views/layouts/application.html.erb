@@ -6,7 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>WillClock</title>
+    <div onload="startTime_tab()"></div>
+    <title id="navbar_clock">WillClock</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,48 +16,92 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    
+    <!--時間表示スクリプト-->
+    <!--navbar_clock-->
+    <script>
+    function startTime_navbar() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById("navbar_clock").innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime_navbar, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    
+    <!--tab_clock-->
+    <script>
+    function startTime_tab() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById("tab_clock").innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime_tab, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    
   </head>
 
 
-  
   <body>
     
     <header class="fixed-top">
-          <div class="collapse bg-secondary" id="navbarHeader">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                  <h4 class="text-white">About</h4>
-                  <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                  <h4 class="text-white">Contact</h4>
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                    <li><a href="#" class="text-white">Like on Facebook</a></li>
-                    <li><a href="#" class="text-white">Email me</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          
+          <body onload="startTime_navbar()">
+            <div id="tt"></div>
+          </body>
           <div class="navbar navbar-dark bg-dark box-shadow">
             <div class="container d-flex justify-content-between">
               <a href="#" class="navbar-brand d-flex align-items-center">
-                <strong>WillClock</strong>
+                <h3><strong>WillClock</strong></h3>
               </a>
-              <div class="btn btn-outline-primary">
-                <%= link_to "Sign up", signup_path %>
+              <span class="btn btn-outline-dark text-light align-items-center">
+                <div onload="startTime(clock0)">
+                  <h3 id="navbar_clock">00:00:00:00</h3>  
+                </div>
+              </span>
+              <div class="d-flex">
+                <ul class="nav nav-links">
+                  <% unless user_signed_in? %>
+                    <li class="btn btn-outline-primary mx-2 text-white">
+                      <%= link_to "Sign up", signup_path, class: "text-white" %>
+                    </li>
+                  <% end %>
+                  <% unless user_signed_in? %>
+                    <li class="btn btn-outline-primary mx-2">
+                      <%= link_to "Log in", login_path, class: "text-white" %>
+                    </li>
+                  <% end %>
+                  <% if user_signed_in? %>
+                    <li class="btn btn-outline-primary mx-2">
+                      <%= link_to "Goals", goals_path, class: "text-white" %>
+                    </li>
+                  <% end %>
+                  <% if user_signed_in? %>
+                    <li class="btn btn-outline-primary mx-2">
+                      <%= link_to "Log out", logout_path, class: "text-white" %>
+                    </li>
+                  <% end %>
+                </ul>
               </div>
-              <div class="btn btn-outline-primary">
-                <%= link_to "Log in", login_path %>
-              </div>
-              <div class="btn btn-outline-primary">
-                <%= link_to "Log out", logout_path %>
-              </div>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+              
             </div>
           </div>
         </header>
@@ -75,5 +120,9 @@
           <div class="">
           </div>
     </div>
+    
+    
+    
+    
   </body>
 </html>
