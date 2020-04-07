@@ -1,26 +1,82 @@
+<script>
+    function startTime(){
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      var rvalue = 6;
+      var id = "<%= @goal.find_by(user_id: current_user.id) %>"
+      var ds = "<%= @goal.find_by(user_id: current_user.id, id: 6).due_time.to_date.yday - Date.today.yday %>";
+      // var hours = ((ds-1) * 24);
+      var hh = 24 - h;
+      var mm = 60 - m;
+      var ss = 60 - s;
+      hh = checkTime(hh);
+      mm = checkTime(mm);
+      ss = checkTime(ss);
+      document.getElementById("big_clock").innerHTML =
+      "id=" + rvalue + " " + "残り" + (ds - 1) + "日" + hh + "時間" + mm + "分" + ss + "秒";
+      // h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+</script>
 
-<body>
+<div class="row">
+  <div class="btn btn-secondary">
+    <%= dtime = @goal.find_by(user_id: current_user.id, id: 6).due_time.to_date %><br />
+    <%= dtime  %><br />
+    <%= dtime.yday %> days<br />
+    <%= dtime.ajd %><br />
+    <%= dtime.amjd %><br />
+    <%= Date.today %><br />
+    <%= Date.today.yday - dtime.yday %><br />
+  </div>
+  <div class="btn btn-info">
+    <ul>
+      <li>UTCとJSTの変換</li>
+      <li>どのGoalのカウントダウンなのか</li>
+      <li>ソート機能</li>
+    <%= @goal.find_by(user_id: current_user.id) %>
+    </ul>
+  </div>
+</div>
+
+
+<body onload="startTime()">
 <h1 class="text-center mb-5">目標一覧</h1>
     <table class="table table-striped table-hover">
       <tr>  
-        <th class="text-center">重要度</th>
+        <th class="text-center">id</th>
         <th>タイトル</th>
         <th>内容</th>
         <th>期限</th>
+        <th>残り</th>
         <th>作成日</th>
-        <th class="text-center">Status</th>
         <th class="text-center">編集</th>
         <th class="text-center">削除</th>
       </tr>  
       <% @goal.each do |goal| %>
       <tr>
         <% if current_user.id == goal.user_id %>
-          <td class="text-center"><%= goal.priority %></td>
+          <td class="text-center"><%= goal.id %></td>
           <td><%= goal.title %></td>
           <td><%= goal.info %></td>
           <td><%= goal.due_time %></td>
+         
+          <td>
+            <% days = goal.due_time.to_date.yday - Date.today.yday %>
+            <% if days > 1 %>
+              <%= days %> 日
+            <% else %>
+              <%= %>終了 
+            <% end %>
+          </td>
+          
           <td><%= goal.created_at.to_date %></td>
-          <td class="text-center"><%= goal.status %></td>
           <td class="text-center">
             <%= link_to edit_goal_path(goal) do %>
               <i class="fas fa-cog"></i>
