@@ -1,56 +1,26 @@
-<head>
-  <div>
-
-  </div>
-</head>
-
-
-
-
-<body>
-  <header>
-  </header>
-
-  <main role="main">
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">目標 一覧</h1>
-        <p class="lead text-muted">View all of your goals</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">進行中</a>
-          <a href="#" class="btn btn-secondary my-2">完了済み</a>
-          <p id="clock"></p>
-        </p>
-      </div>
-    </section>
-  </main>
-
-</body>
-
 
 <h1>目標一覧</h1>
 <h2>Goals#index</h2>
 <body>
-    <table>
-    <% @goal.each do |goal| %>
+    <table class="table table-striped table-hover">
       <tr>  
-        <th>user_id<th>
-        <th>goal_id<th>
-        <th>目標<th>
-        <th>期限<th>
+        <th>user_id</th>
+        <th>goal_id</th>
+        <th>目標</th>
+        <th>期限</th>
       </tr>  
+      <% @goal.each do |goal| %>
       <tr>
-        <td><%= goal.user_id %></td>
-        <td><%= goal.id %></td>
-        <td><%= goal.title %></td>
-        <td><%= goal.due_time %></td>
-        <td><%= link_to "edit", edit_goal_path(goal) %></td>
-        <td><%= link_to "delete", goal_path(goal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>  
-        
-        
-        <p>　</p>
-    <% end %>
+        <% if current_user.id == goal.user_id %>
+          <td><%= goal.user_id %></td>
+          <td><%= goal.id %></td>
+          <td><%= goal.title %></td>
+          <td><%= goal.due_time %></td>
+          <td><%= link_to "edit", edit_goal_path(goal) %></td>
+          <td><%= link_to "delete", goal_path(goal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+      <% end %>
     </table>
     
     <li>
