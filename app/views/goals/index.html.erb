@@ -25,25 +25,25 @@
     }
 </script>
 
-<div class="row">
-  <div class="btn btn-secondary">
-    <%= dtime = @goal.find_by(user_id: current_user.id, id: 6).due_time.to_date %><br />
-    <%= dtime  %><br />
-    <%= dtime.yday %> days<br />
-    <%= dtime.ajd %><br />
-    <%= dtime.amjd %><br />
-    <%= Date.today %><br />
-    <%= Date.today.yday - dtime.yday %><br />
-  </div>
-  <div class="btn btn-info">
-    <ul>
-      <li>UTCとJSTの変換</li>
-      <li>どのGoalのカウントダウンなのか</li>
-      <li>ソート機能</li>
-    <%= @goal.find_by(user_id: current_user.id) %>
-    </ul>
-  </div>
-</div>
+<!--<div class="row">-->
+<!--  <div class="btn btn-secondary">-->
+<!--    <%= dtime = @goal.find_by(user_id: current_user.id, id: 6).due_time.to_date %><br />-->
+<!--    <%= dtime  %><br />-->
+<!--    <%= dtime.yday %> days<br />-->
+<!--    <%= dtime.ajd %><br />-->
+<!--    <%= dtime.amjd %><br />-->
+<!--    <%= Date.today %><br />-->
+<!--    <%= Date.today.yday - dtime.yday %><br />-->
+<!--  </div>-->
+<!--  <div class="btn btn-info">-->
+<!--    <ul>-->
+<!--      <li>UTCとJSTの変換</li>-->
+<!--      <li>どのGoalのカウントダウンなのか</li>-->
+<!--      <li>ソート機能</li>-->
+<!--    <%= @goal.find_by(user_id: current_user.id) %>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</div>-->
 
 
 <body onload="startTime()">
