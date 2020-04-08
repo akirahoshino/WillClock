@@ -68,7 +68,8 @@
           <td><%= goal.due_time %></td>
          
           <td>
-            <% days = goal.due_time.to_date.yday - Date.today.yday %>
+            <% years = goal.due_time.to_date.year - Date.today.year %>
+            <% days = goal.due_time.to_date.yday - Date.today.yday + (365 * years) %>
             <% if days > 1 %>
               <%= days %> 日
             <% else %>
@@ -89,8 +90,11 @@
           </td>
         <% end %>
       </tr>
+
+
       <% end %>
     </table>
+  </div>
     
     <div class="text-center">
       <div class="btn btn-outline-info">
