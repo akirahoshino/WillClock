@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @task = Task.all
+    @task = current_user.tasks.where(goal_id: params[:goal_id])
+    @goal = current_user.goals.where(id: params[:goal_id])
   end
 
   def new
@@ -14,7 +17,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params(params))
     if @task.save
-      redirect_to tasks_path
+      redirect_to goal_tasks_path
     else
       render :new
     end
@@ -24,7 +27,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find(params[:id])
     @task.assign_attributes(task_params(params))
     if @task.save
-      redirect_to tasks_path
+      redirect_to goal_tasks_path
     else
       render :new
     end
@@ -32,7 +35,7 @@ class TasksController < ApplicationController
 
   def destroy
     current_user.tasks.find(params[:id]).destroy
-    redirect_to tasks_path
+    redirect_to goal_tasks_path
   end
   
   private

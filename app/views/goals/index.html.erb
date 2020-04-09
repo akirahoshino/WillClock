@@ -56,6 +56,7 @@
         <th>期限</th>
         <th>残り</th>
         <th>作成日</th>
+        <th class="text-center">メモ</th>
         <th class="text-center">編集</th>
         <th class="text-center">削除</th>
       </tr>  
@@ -77,6 +78,11 @@
           </td>
           
           <td><%= goal.created_at.to_date %></td>
+          <td class="text-center">
+            <%= link_to goal_tasks_path(goal) do %>
+              <i class="fas fa-stopwatch"></i>
+            <% end %>
+          </td>
           <td class="text-center">
             <%= link_to edit_goal_path(goal) do %>
               <i class="fas fa-cog"></i>
