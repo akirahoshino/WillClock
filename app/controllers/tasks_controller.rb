@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @task = current_user.tasks.where(goal_id: params[:goal_id])
-    @goal = current_user.goals.where(id: params[:goal_id])
+    @goal = Goal.find(params[:goal_id])
   end
 
   def new
@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.where(goal_id: params[:goal_id])
   end
 
   def create
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = current_user.tasks.find(params[:id])
+    @task = current_user.tasks.where(goal_id: params[:goal_id])
     @task.assign_attributes(task_params(params))
     if @task.save
       redirect_to goal_tasks_path
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    current_user.tasks.find(params[:id]).destroy
+    current_user.tasks.where(goal_id: params[:goal_id]).destroy
     redirect_to goal_tasks_path
   end
   

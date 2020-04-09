@@ -1,19 +1,10 @@
-<% if @task.errors.any? %>
-  <ul>
-    <% @task.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
 
 <h2>Edit task page</h2>
-<%= @goal.where(id: params[:id])%>
 
-<% if false %>
 
-<%= form_with model: @task do |form| %>
-  <%= form.text_field :info %>
-  <%= form.submit 'Update' %>
-<% end %>
-
-<% end %>
+<div>
+  <%= form_with model: @task do |form| %>
+    <%= form.text_field :info %>
+    <%= form.submit 'Update' %>
+  <% end %>
+</div>

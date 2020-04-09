@@ -1,35 +1,71 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
-
-<div class="row bg-light">
-  <div class="btn text-left">目標名「　　　　」</div>
-  <div>
+<body onload="startTaskTime()">
+  
+  <h2><%= @goal.due_time.to_date.yday - Date.today.yday %></h2>
+  
+  <h1>Tasks#index</h1>
+  <p>Find me in app/views/tasks/index.html.erb</p>
+  
+  <div class="row bg-light">
+    <div class="btn text-left">目標名:</div>
+    <div>
+      <%= @goal.title %>
+    </div>
+    <div class="btn">
+      期限まで残り
+    </div>
+    <div>
+      <%= @goal.due_time.to_date %>
+    </div>
+    <div></div>
+    <div class="btn btn-outline-primary">
+      <h5 id="big_clock">00:00:00:00</h5>
+    </div>
   </div>
-  <div class="btn btn-outline-primary">00:00:00:00</div>
-</div>
+  
+  <div>
+    <table class="table tabel-striped table-hover">
+      <tr>  
+        <th>user_id</th>
+        <th>goal_id</th>
+        <th>投稿日時</th>
+        <th>コメント</th>
+      </tr>  
+    <% @task.each do |task| %>
+      <tr>
+        <td><%= task.user_id %></td>
+        <td><%= task.goal_id %></td>
+        <td><%= task.created_at.to_date %></td>
+        <td><%= task.info %></td>
+        <td><%= link_to "edit", edit_goal_task_path(params[:goal_id], task.id) %></td>
+        <td><%= link_to "delete", goal_task_path(params[:goal_id], task.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
+      </tr>
+    <% end %>
+    </table>
+  </div>
 
-<div>
-  <table class="table">
-    <tr>  
-      <th>user_id</th>
-      <th>goal_id</th>
-      <th>日付</th>
-      <th>コメント</th>
-    </tr>  
-  <% @task.each do |task| %>
-    <tr>
-      <td><%= task.user_id %></td>
-      <td><%= task.goal_id %></td>
-      <td><%= task.created_at %></td>
-      <td><%= task.info %></td>
-      <td><%= link_to "edit", edit_goal_task_path(params[:goal_id], task.id) %></td>
-      <td><%= link_to "delete", goal_task_path(params[:goal_id], task.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    
-    </tr>
-  <% end %>
-  </table>
-</div>
-
-
-<div>
-</div>
+</body>
+<script>
+    function startTaskTime(){
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      var ds = "<%= @goal.due_time.to_date.yday - Date.today.yday %>";
+      // var hours = ((ds-1) * 24);
+      var hh = 23 - h;
+      var mm = 59 - m;
+      var ss = 59 - s;
+      hh = checkTime(hh);
+      mm = checkTime(mm);
+      ss = checkTime(ss);
+      document.getElementById("big_clock").innerHTML =
+      (ds - 1) + "日" + hh + "時間" + mm + "分" + ss + "秒";
+      // h + ":" + m + ":" + s;
+      var t = setTimeout(startTaskTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+</script>

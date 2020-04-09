@@ -1,29 +1,29 @@
-<script>
-    function startTime(){
-      var today = new Date();
-      var h = today.getHours();
-      var m = today.getMinutes();
-      var s = today.getSeconds();
-      var rvalue = 6;
-      var id = "<%= @goal.find_by(user_id: current_user.id) %>"
-      var ds = "<%= @goal.find_by(user_id: current_user.id, id: 6).due_time.to_date.yday - Date.today.yday %>";
-      // var hours = ((ds-1) * 24);
-      var hh = 24 - h;
-      var mm = 60 - m;
-      var ss = 60 - s;
-      hh = checkTime(hh);
-      mm = checkTime(mm);
-      ss = checkTime(ss);
-      document.getElementById("big_clock").innerHTML =
-      "id=" + rvalue + " " + "残り" + (ds - 1) + "日" + hh + "時間" + mm + "分" + ss + "秒";
-      // h + ":" + m + ":" + s;
-      var t = setTimeout(startTime, 500);
-    }
-    function checkTime(i) {
-      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-      return i;
-    }
-</script>
+// <script>
+//     function startTime(){
+//       var today = new Date();
+//       var h = today.getHours();
+//       var m = today.getMinutes();
+//       var s = today.getSeconds();
+//       var rvalue = 6;
+//       var id = "<%= @goal.find_by(user_id: current_user.id) %>"
+//       var ds = "<%= @goal.find_by(user_id: current_user.id, id: 6).due_time.to_date.yday - Date.today.yday %>";
+//       // var hours = ((ds-1) * 24);
+//       var hh = 24 - h;
+//       var mm = 60 - m;
+//       var ss = 60 - s;
+//       hh = checkTime(hh);
+//       mm = checkTime(mm);
+//       ss = checkTime(ss);
+//       document.getElementById("big_clock").innerHTML =
+//       "id=" + rvalue + " " + "残り" + (ds - 1) + "日" + hh + "時間" + mm + "分" + ss + "秒";
+//       // h + ":" + m + ":" + s;
+//       var t = setTimeout(startTime, 500);
+//     }
+//     function checkTime(i) {
+//       if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+//       return i;
+//     }
+// </script>
 
 <!--<div class="row">-->
 <!--  <div class="btn btn-secondary">-->
@@ -45,8 +45,8 @@
 <!--  </div>-->
 <!--</div>-->
 
-
-<body onload="startTime()">
+<!-- onload="startTime()" -->
+<body>
 <h1 class="text-center mb-5">目標一覧</h1>
     <table class="table table-striped table-hover">
       <tr>  
