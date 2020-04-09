@@ -1,4 +1,4 @@
-// <script>
+<script>
 //     function startTime(){
 //       var today = new Date();
 //       var h = today.getHours();
@@ -55,7 +55,7 @@
         <th>内容</th>
         <th>期限</th>
         <th>残り</th>
-        <th>作成日</th>
+        <th class="text-muted">作成日</th>
         <th class="text-center">メモ</th>
         <th class="text-center">編集</th>
         <th class="text-center">削除</th>
@@ -66,7 +66,7 @@
           <td class="text-center"><%= goal.id %></td>
           <td><%= goal.title %></td>
           <td><%= goal.info %></td>
-          <td><%= goal.due_time %></td>
+          <td><%= goal.due_time.to_date %></td>
          
           <td>
             <% days = goal.due_time.to_date.yday - Date.today.yday %>
@@ -77,9 +77,11 @@
             <% end %>
           </td>
           
-          <td><%= goal.created_at.to_date %></td>
+          <td class="text-muted">
+            <%= goal.created_at.to_date %>
+          </td>
           <td class="text-center">
-            <%= link_to goal_tasks_path(goal) do %>
+            <%= link_to goal_tasks_path(goal), data: {"turbolinks"=>false} do %>
               <i class="fas fa-stopwatch"></i>
             <% end %>
           </td>
