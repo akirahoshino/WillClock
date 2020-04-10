@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
+  # resources :goals do
+  #   resources :tasks
+  # end
+  resources :goals do
+    resources :tasks, only: [:index, :new, :create]
+  end
+  resources :tasks, only: [:show, :edit, :update, :destroy]
+  
+  root "welcome#index"
   get 'welcome/index'
-  root "welcom#index"
+  # get 'tasks/index'
   # get "" => ""
   
   # get 'goals/new' => 'goals#new'
@@ -8,8 +17,6 @@ Rails.application.routes.draw do
   
   # get 'goals/edit' => 'goals#edit' 
   
-  # resources :goals
-  resources :goals #, only: [:index, :new, :create, :edit, :update]
   #devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -24,7 +31,4 @@ Rails.application.routes.draw do
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
   end
-
-
-
 end
