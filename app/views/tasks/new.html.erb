@@ -1,0 +1,27 @@
+<% if false %>
+  <% if @task.errors.any? %>
+    <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<h2>
+  <p>@task.user_id <%= @task.user_id %></p>
+  <p>@task.goal_id <%= @task.goal_id %></p>
+  <p>@task.goal_id <%= @task.info %></p>
+  <p>@task <%= @task %></p>
+</h2>
+
+<% end %>
+
+  <%= form_with model: @task.info do |form| %>
+    <%= form.text_field :info %>
+    <%= form.submit '送信' %>
+  <% end %>
+<% if false %>
+<% end %>
+
+
+<h2><%= @task %></h2>

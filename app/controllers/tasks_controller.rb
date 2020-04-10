@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :set_task, only: [:edit, :update, :destroy]
+  # before_action :authenticate_user!
 
   def index
     @task = current_user.tasks.where(goal_id: params[:goal_id])
@@ -7,27 +8,37 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    @task = current_user.tasks.new(user_id: current_user.id, goal_id: params[:goal_id])
+      if @task
+      end
+    # @task = Task.new(goal_id: params[:goal_id], user_id: current_user.id)
   end
 
   def edit
-    @task = current_user.tasks.where(goal_id: params[:goal_id])
+    # @task = Task.find(params[:id])
+    # @task = Task.find(params[:id])
+    # @task = current_user.tasks.where(goal_id: @goal.id)
+    # @goal = Goal.find(params[:goal_id])
+    # @task = current_user.tasks.where(goal_id: params[:goal_id], id: params[:id])
+    # @goal = Goal.find(params[:id])
   end
 
   def create
     @task = current_user.tasks.new(task_params(params))
     if @task.save
-      redirect_to goal_tasks_path
-    else
-      render :new
+      puts @task.save
+      redirect_to goal_tasks_path(params[:id])
+    # else
+    #   render :new
     end
   end
 
   def update
-    @task = current_user.tasks.where(goal_id: params[:goal_id])
+    @task = Task.find(params[:id])
     @task.assign_attributes(task_params(params))
     if @task.save
-      redirect_to goal_tasks_path
+      render :new
+      # redirect_to goal_tasks_path
     else
       render :new
     end
@@ -35,12 +46,19 @@ class TasksController < ApplicationController
 
   def destroy
     current_user.tasks.where(goal_id: params[:goal_id]).destroy
-    redirect_to goal_tasks_path
+    # redirect_to goal_tasks_path
   end
   
   private
   
+  def set_user
+    #@user = User.find(params[:id])
+    @goal = Goal.where(:id => params[:goal_id]).first
+    @task = @goal.tasks.where(:id => params[:id]).first
+  end
+  
   def task_params(params)
-    params.require(:task).permit(:info)
+    params.require(:task).permit(:user_id, :goal_id, :info)
+    # params.require(:task)
   end
 end

@@ -36,12 +36,16 @@
         <td><%= task.goal_id %></td>
         <td><%= task.created_at.to_date %></td>
         <td><%= task.info %></td>
-        <td><%= link_to "edit", edit_goal_task_path(params[:goal_id], task.id) %></td>
+        <td><%= link_to "edit", edit_goal_task_path(@goal, task.id) %></td>
         <td><%= link_to "delete", goal_task_path(params[:goal_id], task.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       
       </tr>
     <% end %>
     </table>
+  </div>
+
+  <div class="btn btn-outline-primary">
+    <%= link_to "Add memo", new_goal_task_path(params[:goal_id]) %>
   </div>
 
 </body>

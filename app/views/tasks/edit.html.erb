@@ -1,6 +1,11 @@
 
 <h2>Edit task page</h2>
-
+<h2 class="column">
+@task.info <%= @task.info %>
+@task.goal_id <%= @task.goal_id %>
+@task.user_id <%= @task.user_id %>
+@task.info <%= @task.info %>
+</h2>
 
 <div>
   <%= form_with model: @task do |form| %>
@@ -8,3 +13,5 @@
     <%= form.submit 'Update' %>
   <% end %>
 </div>
+<% if false %>
+<% end %>
