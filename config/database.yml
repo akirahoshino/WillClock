@@ -83,7 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: will_clock_production
-  username: postgres
-  # username: will_clock
-  password: <%= ENV['will_clock_DATABASE_PASSWORD'] %>
+  database: myapp_production
+  username: myapp
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
