@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  # resources :goals do
+  #   resources :tasks
+  # end
   resources :goals do
-    resources :tasks
+    resources :tasks, only: [:index, :new, :create]
   end
-
+  resources :tasks, only: [:show, :edit, :update, :destroy]
+  
   root "welcome#index"
   get 'welcome/index'
   # get 'tasks/index'

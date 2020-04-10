@@ -15,7 +15,7 @@
 </h2>
 
 <% end %>
-
+  <h3>メモを追加</h3>
   <%= form_with model: @task.info do |form| %>
     <%= form.text_field :info %>
     <%= form.submit '送信' %>
@@ -24,4 +24,3 @@
 <% end %>
 
 
-<h2><%= @task %></h2>
