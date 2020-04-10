@@ -17,7 +17,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new(user_id: current_user.id, goal_id: params[:goal_id], info: params[:info])
+    @task = current_user.tasks.new(user_id: current_user.id, goal_id: params[:goal_id])
+    @task.assign_attributes(task_params(params))
     if @task.save
       redirect_to goal_tasks_path(@task.goal_id)
     else

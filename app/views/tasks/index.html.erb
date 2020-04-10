@@ -1,4 +1,4 @@
-<body onload="startTaskTime()">
+<body>
   
   <h2><%= @goal.due_time.to_date.yday - Date.today.yday %></h2>
   
@@ -50,6 +50,9 @@
 
 </body>
 <script>
+document.addEventListener("turbolinks:load", function() {
+    startTaskTime();
+})
     function startTaskTime(){
       var today = new Date();
       var h = today.getHours();

@@ -3,7 +3,8 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @goal = Goal.all
+    @goal = Goal.all.order(due_time: :asc)
+    # @goal = Goal.all.order(due_time: :desc)
   end
 
   def new
