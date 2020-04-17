@@ -1,9 +1,6 @@
 <body>
   
-  <h2><%= @goal.due_time.to_date.yday - Date.today.yday %></h2>
-  
   <h1>Tasks#index</h1>
-  <p>Find me in app/views/tasks/index.html.erb</p>
   
   <div class="row bg-light">
     <div class="btn text-left">目標名:</div>
@@ -57,17 +54,18 @@ document.addEventListener("turbolinks:load", function() {
       var h = today.getHours();
       var m = today.getMinutes();
       var s = today.getSeconds();
-      var ds = "<%= @goal.due_time.to_date.yday - Date.today.yday %>";
-      // var hours = ((ds-1) * 24);
+      var ds = "<%= (@goal.due_time.to_date - Date.today).to_i %>";
       var hh = 23 - h;
       var mm = 59 - m;
       var ss = 59 - s;
       hh = checkTime(hh);
       mm = checkTime(mm);
       ss = checkTime(ss);
-      document.getElementById("big_clock").innerHTML =
-      (ds - 1) + "日" + hh + "時間" + mm + "分" + ss + "秒";
-      // h + ":" + m + ":" + s;
+      var display = (ds - 1) + "日" + hh + "時間" + mm + "分" + ss + "秒";
+      if(ds < 0){
+        display = "終了済み";
+      }
+      document.getElementById("big_clock").innerHTML = display;
       var t = setTimeout(startTaskTime, 500);
     }
     function checkTime(i) {

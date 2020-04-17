@@ -21,7 +21,7 @@
           <td><%= goal.due_time.strftime("%Y年%-m月%-d日%H:%M:%S") %></td>
          
           <td>
-            <% days = goal.due_time.to_date.yday - Date.today.yday %>
+            <% days = (goal.due_time.to_date - Date.today).to_i %>
             <% if days > 1 %>
               <%= days %> 日
             <% else %>
