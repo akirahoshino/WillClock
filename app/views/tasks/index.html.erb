@@ -47,7 +47,9 @@
 </body>
 <script>
 document.addEventListener("turbolinks:load", function() {
-    startTaskTime();
+    if (document.getElementById("big_clock")) {
+      startTaskTime();
+    }
 })
     function startTaskTime(){
       var today = new Date();
@@ -65,8 +67,11 @@ document.addEventListener("turbolinks:load", function() {
       if(ds < 0){
         display = "終了済み";
       }
-      document.getElementById("big_clock").innerHTML = display;
-      var t = setTimeout(startTaskTime, 500);
+      var bigClock = document.getElementById("big_clock");
+      if (bigClock) {
+        bigClock.innerHTML = display;
+        setTimeout(startTaskTime, 1000);
+      }
     }
     function checkTime(i) {
       if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
