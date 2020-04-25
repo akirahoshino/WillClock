@@ -1,47 +1,60 @@
 <body>
-  
-  <div class="row bg-light mb-5">
-    <div class="btn text-left">目標名:</div>
-    <div>
-      <%= @goal.title %>
+  <div class="fixed-top" style="padding-top:67px">
+    <div class="container bg-light mb-5">
+      <h1 class="text-center display-3" id="big_clock">00:00:00:00</h1>
     </div>
-    <div class="btn">
-      期限まで残り
-    </div>
-    <div>
-      <%= @goal.due_time.strftime("%Y年%-m月%-d日%H:%M:%S") %>
-    </div>
-    <div class="pl-5"></div>
-    <div class="btn btn-warning">
-      <h5 id="big_clock">00:00:00:00</h5>
-    </div>
+  </div> 
+  <div class="container mb-5" style="padding-top:150px">
+      <div>
+        <table class="table text-center">
+          <thead>
+              <td style="width:40%">目標</td>
+              <td>期限</td>
+          </thead>
+          <tbody>
+            <tr>
+              <td><h3><%= @goal.title %></h3></td>
+              <td>
+                <h3>
+                  <%= @goal.due_time.strftime("%Y年%-m月%-d日") %>
+                </h3>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
+
   
   <h3 class="text-center">コメント一覧</h3>
   <div>
     <table class="table tabel-striped table-hover">
-      <tr>  
-        <th>投稿日時</th>
-        <th>コメント</th>
-        <th class="text-center">編集</th>
-        <th class="text-center">削除</th>
-      </tr>  
+      <thead class="thead-dark">
+        <tr>  
+          <th>投稿日時</th>
+          <th>コメント</th>
+          <th class="text-center">編集</th>
+          <th class="text-center">削除</th>
+        </tr>
+      </thead>
     <% @task.each do |task| %>
-      <tr>
-        <td><%= task.created_at.strftime("%Y年%-m月%-d日%H時%M分") %></td>
-        <td><%= task.info %></td>
-        <td class="text-center">
-            <%= link_to edit_task_path(task) do %>
-              <i class="fas fa-cog"></i>
+      <tbody>
+        <tr>
+          <td style="width:25%"><%= task.created_at.strftime("%Y年%-m月%-d日%H時%M分") %></td>
+          <td style="width:55%"><%= task.info %></td>
+          <td class="text-center">
+              <%= link_to edit_task_path(task) do %>
+                <i class="fas fa-cog"></i>
+              <% end %>
+          </td>
+            
+          <td class="text-center">
+            <%= link_to task_path(task), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fas fa-trash"></i>
             <% end %>
-        </td>
-          
-        <td class="text-center">
-          <%= link_to task_path(task), method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="fas fa-trash"></i>
-          <% end %>
-        </td>
-      </tr>
+          </td>
+        </tr>
+      </tbody>
     <% end %>
     </table>
   </div>
@@ -69,7 +82,7 @@ document.addEventListener("turbolinks:load", function() {
       var hh = 23 - h;
       var mm = 59 - m;
       var ss = 59 - s;
-      hh = checkTime(hh);
+      // hh = checkTime(hh);
       mm = checkTime(mm);
       ss = checkTime(ss);
       var display = (ds - 1) + "日" + hh + "時間" + mm + "分" + ss + "秒";
