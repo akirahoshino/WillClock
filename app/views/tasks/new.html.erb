@@ -1,21 +1,12 @@
-<% if false %>
-  <% if @task.errors.any? %>
-    <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-<h2>
-  <p>@task.user_id <%= @task.user_id %></p>
-  <p>@task.goal_id <%= @task.goal_id %></p>
-  <p>@task.goal_id <%= @task.info %></p>
-  <p>@task <%= @task %></p>
-</h2>
-
+<% if @task.errors.any? %>
+  <ul>
+    <% @task.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
 <% end %>
-  <h3>メモを追加</h3>
+
+<h3>メモを追加</h3>
   <%= form_with model: @task, url: goal_tasks_path(@task.goal) do |form| %>
     <%= form.text_field :info %>
     <%= form.submit '送信' %>

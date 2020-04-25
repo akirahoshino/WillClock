@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   def index
     @task = current_user.tasks.where(goal_id: params[:goal_id])
     @goal = Goal.find(params[:goal_id])
+    @new_task = Task.new(user_id: current_user.id, goal_id: params[:goal_id])
   end
 
   def new
