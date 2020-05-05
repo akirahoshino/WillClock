@@ -37,7 +37,11 @@
   - 日時分秒 表示
  
  ## テーブル一覧
- ![テーブル一覧](https://user-images.githubusercontent.com/61283814/80273898-403aa380-8711-11ea-87d8-431da1466e71.png)
+![テーブル一覧](https://user-images.githubusercontent.com/61283814/80302636-25862e80-87e6-11ea-8448-01ad21194970.png)
+
+## ページ遷移図
+![Sitemap](https://user-images.githubusercontent.com/61283814/80623528-48823e00-8a85-11ea-9da0-a78f76624ad4.png)
+
 
 ## 使い方
 - アカウント作成
