@@ -28,17 +28,6 @@ ActiveRecord::Schema.define(version: 2020_04_08_163228) do
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
-  create_table "memos", force: :cascade do |t|
-    t.integer "goal_id", null: false
-    t.integer "user_id", null: false
-    t.text "info"
-    t.integer "status", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["goal_id"], name: "index_memos_on_goal_id"
-    t.index ["user_id"], name: "index_memos_on_user_id"
-  end
-
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "goal_id", null: false

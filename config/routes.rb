@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   #   resources :tasks
   # end
   resources :goals do
-    resources :tasks, only: [:index, :new, :create]
+    resources :tasks
   end
-  resources :tasks, only: [:show, :edit, :update, :destroy]
+  #resources :tasks, only: [:show, :edit, :update, :destroy]
   
   root "welcome#index"
   get 'welcome/index'
