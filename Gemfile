@@ -56,7 +56,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-gem 'devise-i18n'
 # gem 'pry', '~> 0.12.2'
 
 group :development, :test do
@@ -72,7 +71,5 @@ group :production do
 end
 
 group :production, :staging do
-  gem 'unicorn'
-  # gem 'yarn'
-  # gem 'optimist'
+    gem 'unicorn'
 end

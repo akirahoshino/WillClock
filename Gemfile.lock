@@ -83,8 +83,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.1)
-      devise (>= 4.7.1)
     erubi (1.9.0)
     ffi (1.12.2)
     globalid (0.4.2)
@@ -110,7 +108,7 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
-    mimemagic (0.3.4)
+    mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
@@ -233,7 +231,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.8)
       rack (>= 2.0.6)
-    web-console (4.0.1)
+    web-console (4.0.2)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
@@ -262,7 +260,6 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-  devise-i18n
   jbuilder (~> 2.7)
   jquery-turbolinks
   listen (>= 3.0.5, < 3.2)
