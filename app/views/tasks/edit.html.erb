@@ -1,7 +1,8 @@
+<% provide(:title, "メモを編集") %>
 <h2>メモを編集する</h2>
 
 <div>
-  <%= form_with model: @task do |form| %>
+  <%= form_with model: @task, url: goal_task_path(@goal, @task) do |form| %>
     <%= form.text_field :info %>
     <%= form.submit '更新' %>
   <% end %>

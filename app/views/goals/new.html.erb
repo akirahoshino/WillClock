@@ -1,3 +1,5 @@
+<% provide(:title, "新規目標") %>
+
 <% if @goal.errors.any? %>
   <ul>
     <% @goal.errors.full_messages.each do |msg| %>

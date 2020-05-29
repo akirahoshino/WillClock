@@ -1,3 +1,4 @@
+<% provide(:title, "メモ一覧") %>
 <body>
   <div class="container sticky-top px-0" style="padding-top:94px">
     <div class="bg-light">
@@ -37,19 +38,19 @@
           <th class="text-center">削除</th>
         </tr>
       </thead>
-    <% @task.each do |task| %>
+    <% @tasks.each do |task| %>
       <tbody>
         <tr>
           <td style="width:30%"><%= task.created_at.strftime("%Y年%-m月%-d日%H時%M分") %></td>
           <td style="width:55%"><%= task.info %></td>
           <td class="text-center">
-              <%= link_to edit_task_path(task) do %>
+              <%= link_to edit_goal_task_path(goal_id: @goal.id, id: task.id) do %>
                 <i class="fas fa-edit"></i>
               <% end %>
           </td>
             
           <td class="text-center">
-            <%= link_to task_path(task), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= link_to goal_task_path(goal_id: @goal.id, id: task.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
               <i class="fas fa-trash"></i>
             <% end %>
           </td>

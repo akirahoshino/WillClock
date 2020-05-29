@@ -1,0 +1,38 @@
+<header class="fixed-top">
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <h3><strong>WillClock</strong></h3>
+        </a>
+        <span class="btn btn-outline-dark text-light align-items-center">
+          <div>
+            <h3 id="clock"></h3>  
+          </div>
+        </span>
+        <div class="d-flex">
+          <ul class="nav nav-links">
+            <% unless user_signed_in? %>
+              <li class="btn btn-outline-primary mx-2 text-white">
+                <%= link_to "サインアップ", signup_path, class: "text-white" %>
+              </li>
+            <% end %>
+            <% unless user_signed_in? %>
+              <li class="btn btn-outline-primary mx-2">
+                <%= link_to "ログイン", login_path, class: "text-white" %>
+              </li>
+            <% end %>
+            <% if user_signed_in? %>
+              <li class="btn btn-outline-primary mx-2">
+                <%= link_to "目標一覧", goals_path, class: "text-white" %>
+              </li>
+            <% end %>
+            <% if user_signed_in? %>
+              <li class="btn btn-outline-primary mx-2">
+                <%= link_to "ログアウト", logout_path, class: "text-white" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
